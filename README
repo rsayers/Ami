@@ -1,0 +1,24 @@
+Ami - A small web framework in Scheme.
+
+
+Ami is written first and foremost as my capstone project  for my bachelors 
+degree.  It is however being written to future use in mind to fit the needs of 
+a recent schemer and long time web developer.
+
+Ami is Japanese for Web, and French for Friend.  I hope that it lives up to 
+this name and ends up being a friendly little framework.  It is inspired by 
+Sinatra.rb and Web.py.
+
+What you currently hold is the first alpha release.  It has most features you 
+will need for writing a webapp but is of course under development so more 
+features and stability will be added int he future.
+
+An example:
+
+(require "ami.scm")
+(get "/hi" (lambda () "Hello from Ami!"))
+(run)
+
+
+More examples are included in the examples/ directory.  Please see 
+http://ami.robsayers.com for more examples and documentation

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Link Share App</title>
+<style>
+
+</style>
+</head>
+<body>
+<h2>Ami Example App</h2>
+<form method='post' action='<% (p *baseurl*) %>/newLink'>
+Link Name: <input name='name'> Url: <input name='url' value='http://'> <input type='submit' value='Go!'>
+</form>
+
+
+<table>
+<tr>
+<th>Score</th>
+<th>Vote</th>
+<th>Link</th>
+</tr>
+
+<% (for-each format-link (sort-data *data*)) %>
+</table>
+<body>
+</html>

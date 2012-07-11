@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./ami.css" type="text/css" />
+<title>./docs/ami</title>
+<!-- Source: ./ -->
+<!-- Generated with ROBODoc Version 4.99.41 (May  3 2011) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc">Ami</a>
+</div> <!-- logo -->
+<h3>TABLE OF CONTENTS</h3>
+<ul>
+<li><a href="#robo0">Ami/add-header</a></li>
+<li><a href="#robo1">Ami/add-header/allowdup</a></li>
+<li><a href="#robo2">Ami/add-to-output</a></li>
+<li><a href="#robo3">Ami/cookie$</a></li>
+<li><a href="#robo4">Ami/default</a></li>
+<li><a href="#robo5">Ami/error</a></li>
+<li><a href="#robo6">Ami/find-var</a></li>
+<li><a href="#robo7">Ami/get</a></li>
+<li><a href="#robo8">Ami/get$</a></li>
+<li><a href="#robo9">Ami/p</a></li>
+<li><a href="#robo10">Ami/post</a></li>
+<li><a href="#robo11">Ami/post$</a></li>
+<li><a href="#robo12">Ami/root</a></li>
+<li><a href="#robo13">Ami/set-cookie</a></li>
+<li><a href="#robo14">Ami/template</a></li>
+</ul>
+<hr />
+<a name="Ami2fadd2dheader"></a>
+<a name="robo0"></a><h2>Ami/add-header [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      header - String of the complete header to send
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>add-header</strong> - adds a new header to send to the browser
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre>      (<strong>add-header</strong> "Location: <a href="http://google.com")">http://google.com")</a>
+</pre>
+<p class="item_name">NOTES</p>
+<pre>      Any header with an existing name will be removed before the new one is added
+      If you need duplicates, use addheader/allowdup
+</pre>
+
+<hr />
+<a name="Ami2fadd2dheader2fallowdup"></a>
+<a name="robo1"></a><h2>Ami/add-header/allowdup [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">NAME</p>
+<pre>      <a href="#robo0">add-header</a>/allowup - Same as <a href="#robo0">add-header</a>, but allows duplicates
+</pre>
+
+<hr />
+<a name="Ami2fadd2dto2doutput"></a>
+<a name="robo2"></a><h2>Ami/add-to-output [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      data - the string to add to the buffer
+</pre>
+<p class="item_name">NAME</p>
+<pre>      add-to-ouput - adds a string to the output buffer
+</pre>
+<p class="item_name">NOTES</p>
+<pre>      This is not a general usage function, as the proper way to create output is to
+      return it from your routes function.  Add-to-output is used internally, but may prove
+      usefull for some developers
+</pre>
+
+<hr />
+<a name="Ami2fcookie24"></a>
+<a name="robo3"></a><h2>Ami/cookie$ [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      key - String value of the key you want to find
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>cookie$</strong> - retrieves a cookie
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      String value if found, otherwise Nil
+</pre>
+
+<hr />
+<a name="Ami2fdefault"></a>
+<a name="robo4"></a><h2>Ami/default [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      var - the expression to test
+      val - the desired <strong>default</strong> value
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>default</strong> - set a <strong>default</strong> value for any expression
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      if var is #f, '() or "",  val is returned, otherwise, var is
+</pre>
+
+<hr />
+<a name="Ami2ferror"></a>
+<a name="robo5"></a><h2>Ami/error [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      code - The string of the <strong>error</strong> code
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>error</strong> - displays an <strong>error</strong> message
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      The string containing the <strong>error</strong> message
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre>      (<strong>error</strong> "404") -&gt; "The Resource you requested is not found"
+</pre>
+<p class="item_name">NOTES</p>
+<pre>      Currently only 404 is implemented
+</pre>
+
+<hr />
+<a name="Ami2ffind2dvar"></a>
+<a name="robo6"></a><h2>Ami/find-var [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      collection - Symbol of 'POST_VARS, 'GET_VARS, or 'COOKIES
+      key - String value of the key you want to find
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>find-var</strong> - Searches a specified association list for a key
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      String value if found, otherwise Nil
+</pre>
+<p class="item_name">NOTES</p>
+<pre>      This is wrapped by the <a href="#robo8">get$</a> <a href="#robo11">post$</a> and <a href="#robo3">cookie$</a> functions and will probably not be called by the user
+</pre>
+
+<hr />
+<a name="Ami2fget"></a>
+<a name="robo7"></a><h2>Ami/get [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      req - the request pattern to match
+      resp - the function to call when the request is matched      
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>get</strong> - defines a route for the GET method
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre>      (<strong>get</strong> "/hello" (lambda () "Hello World")) -&gt; URL /hello will display "Hello World" in the browser
+      (<strong>get</strong> "/say/:name" (lambda (name) (string-append "Hello! " name))) -&gt; URL /say/steve will display "Hello! steve"
+      (<strong>get</strong> "/id/(\d+)" (lambda (id) (string-append "Accessing #" id))) -&gt; URL /id/3 will match, but /id/test would not
+</pre>
+
+<hr />
+<a name="Ami2fget24"></a>
+<a name="robo8"></a><h2>Ami/get$ [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      key - String value of the key you want to find
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>get$</strong> - retrieves an HTTP_GET_VAR
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      String value if found, otherwise Nil
+</pre>
+
+<hr />
+<a name="Ami2fp"></a>
+<a name="robo9"></a><h2>Ami/p [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">NAME</p>
+<pre>      <strong>p</strong> - alias to display,  to make templates more compact
+</pre>
+
+<hr />
+<a name="Ami2fpost"></a>
+<a name="robo10"></a><h2>Ami/post [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      req - the request pattern to match
+      resp - the function to call when the request is matched
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>post</strong> - defines a route for the POST method
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre>      (<strong>post</strong> "/hello" (lambda () "Hello World")) -&gt; URL /hello will display "Hello World" in the browser
+      (<strong>post</strong> "/say/:name" (lambda (name) (string-append "Hello! " name))) -&gt; URL /say/steve will display "Hello! steve"
+      (<strong>post</strong> "/id/(\d+)" (lambda (id) (string-append "Accessing #" id))) -&gt; URL /id/3 will match, but /id/test would not
+</pre>
+
+<hr />
+<a name="Ami2fpost24"></a>
+<a name="robo11"></a><h2>Ami/post$ [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      key - String value of the key you want to find
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>post$</strong> - retrieves an HTTP_POST_VAR
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      String value if found, otherwise Nil
+</pre>
+
+<hr />
+<a name="Ami2froot"></a>
+<a name="robo12"></a><h2>Ami/root [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      url - a url path 
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>root</strong> - returns the <strong>root</strong> of a uri path
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre>      (<strong>root</strong> "/home/test") -&gt; "home"
+      (<strong>root</strong> "/") -&gt; "/"
+      (<strong>root</strong> "") -&gt; "/"
+</pre>
+
+<hr />
+<a name="Ami2fset2dcookie"></a>
+<a name="robo13"></a><h2>Ami/set-cookie [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      key - The String name of the cookie
+      val - the value of the cookie
+      extra - (Optional) A list of extra strings to append to the cookie, use this to pass a path or expiration date
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>set-cookie</strong> - sets a cookie
+</pre>
+<p class="item_name">RESULT</p>
+<pre>      Nil
+</pre>
+
+<hr />
+<a name="Ami2ftemplate"></a>
+<a name="robo14"></a><h2>Ami/template [ Functions ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ Functions ]</p>
+<p class="item_name">INPUTS</p>
+<pre>      filename - file containing the <strong>template</strong>
+</pre>
+<p class="item_name">NAME</p>
+<pre>      <strong>template</strong> - compile a <strong>template</strong> file
+</pre>
+<p class="item_name">NOTES</p>
+<pre>      This is implemented so that your <strong>template</strong> file is compiled and executed in the same
+      scope as the environment from which it was called,  so your <strong>template</strong> will have access
+      to any symbols defined in its calling function
+</pre>
+
+<div id="footer">
+<p>Generated from ./ with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.41 on Tue Feb 21 2012 14:12:13
+</p>
+</div> <!-- footer -->
+</body>
+</html>

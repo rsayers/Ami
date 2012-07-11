@@ -1,0 +1,1 @@
+Counting: <% (letrec ((foo (lambda (n) (cond ((zero? n) n) (else (begin (display n) (display "-") (foo (- n 1)))))))) (foo 10)) %>
